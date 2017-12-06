@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
   res.send('<h1>SacDeNoeud.js</h1>');
 });
 
-app.get('/deploy', (req, res) => {
+app.post('/deploy', (req, res) => {
   var child = exec("cd ~/www ; git pull", function(err, stdout, stderr){
         if(err != null){
             res.send('<h1>Error during deployment !</h1><p>' + stderr + '</p>');
