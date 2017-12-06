@@ -1,0 +1,40 @@
+Le script a débuté sur mar. 05 déc. 2017 19:00:49 CET
+]0;ndli@voxystudio: ~/wwwndli@voxystudio:~/www$ screen
+[r[m[2J[H[?7h[?1;4;6l[?1049h[4l[?1h=[0m(B[1;35r[H[2J[H[2J[H[2J
+Screen version 4.02.01 (GNU) 28-Apr-14
+
+Copyright (c) 2010 Juergen Weigert, Sadrul Habib Chowdhury
+Copyright (c) 2008, 2009 Juergen Weigert, Michael Schroeder, Micah Cowan, Sadrul Habib Chowdhury
+Copyright (c) 1993-2002, 2003, 2005, 2006, 2007 Juergen Weigert, Michael Schroeder
+Copyright (c) 1987 Oliver Laumann
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation; either version 3, or (at your
+option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program (see the
+file COPYING); if not, see http://www.gnu.org/licenses/, or contact Free Software Foundation,
+Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02111-1301  USA.
+
+Send bugreports, fixes, enhancements, t-shirts, money, beer & pizza to screen-devel@gnu.org
+
+
+Capabilities:
++copy +remote-detach +power-detach +multi-attach +multi-user +font +color-256 +utf8 +rxvt
++builtin-telnet[34;35H[Press Space or Return to end.]
+[H[2Jndli@voxystudio:~/www$ nodemon
+[33m[nodemon] 1.12.4[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node index.js`[39m
+rs
+[32m[nodemon] starting `node index.js`[39m
+[?1l>[35;1H
+[?1049l[detached from 3274.pts-5.voxystudio]
+]0;ndli@voxystudio: ~/wwwndli@voxystudio:~/www$ exit
+
+Script terminé sur mar. 05 déc. 2017 19:01:00 CET
