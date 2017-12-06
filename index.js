@@ -4,7 +4,7 @@ var exec = require('child_process').exec;
 var app = express();
 
 app.get('/', (req, res) => {
-  res.send('<h1>SacDeNoeud.js</h1>');
+  res.send('<h1>SacDeNoeud.js</h1><p>Homepage</p>');
 });
 
 app.post('/deploy', (req, res) => {
