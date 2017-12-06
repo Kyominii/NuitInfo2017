@@ -8,9 +8,9 @@ app.get('/', (req, res) => {
 app.get('/deploy', (req, res) => {
   var child = exec("cd ~/www ; git pull", function(err, stdout, stderr){
         if(err != null){
-            res.send('<h1>Error during deployment !</h1><p>' . stderr . '</p>');
+            res.send('<h1>Error during deployment !</h1><p>' + stderr + '</p>');
         }else{
-            res.send('<h1>Deployment completed !</h1><p>' . stdout . '</p>');
+            res.send('<h1>Deployment completed !</h1><p>' + stdout + '</p>');
         }
     });
 });
