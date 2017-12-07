@@ -32,7 +32,7 @@ router.post('/', function(req,res){
 
     if(errors) {
         req.session.errors = errors;
-        console.log(errors);
+        res.render('signin', { error: true, errors: errors });
         res.redirect('/signin');
     }
     else {

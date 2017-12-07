@@ -1,6 +1,10 @@
 extends layout
 block content
     .container
+        if error
+            for e in errors
+                div(class="alert alert-danger") #{e.msg}
+
         form(class="form-signin", name="connexionForm", method="post", action="/signin")
             h2(class="form-signin-heading") Inscription
 

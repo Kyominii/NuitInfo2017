@@ -3,7 +3,7 @@ html
     head
         title Dashboard
     body
-      - if (displayMode == 0)
+      if (displayMode == 0)
         p Bienvenue #{pseudo}
         p Ajouter un véhicule
 
@@ -16,8 +16,8 @@ html
                 input(type="number", name="capacity")
             div.actions
                 input(type="submit", value="Envoyer")
-      - else if(displayMode == 1)
+      else if(displayMode == 1)
         p Votre véhicule a été ajouté !
         a(href="/users") Retour
-      -else
+      else
         p Erreur de mode !
