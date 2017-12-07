@@ -14,7 +14,7 @@ router.post('/', function (req, res, next) {
         res.render('login',{});
     }
     else {
-        var sql = 'SELECT password FROM users WHERE pseudo="'+req.body.pseudo+'" ';
+        var sql = 'SELECT id,password FROM users WHERE pseudo="'+req.body.pseudo+'" ';
 
         con.query(sql, function (err,result) {
             if(err) throw err;
