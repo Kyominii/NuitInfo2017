@@ -31,20 +31,26 @@ router.post('/', function(req,res){
     var errors = req.validationErrors();
 
     if(errors) {
-        //req.session.errors = errors;
+        req.session.errors = errors;
         console.log(errors);
-        res.redirect('/login');
+        res.redirect('/signin');
     }
     else {
-        var sqlAddress = 'INSERT INTO addresses VALUES(0,"'+req.body.address+'","'+req.body.postalcode+'","'+req.body.city+'","'+req.body.country+'")';
+        var sql = 'SELECT email FROM users WHERE email="'+req.body.email+'"';
 
-        con.query(sqlAddress, function (err, result) {
+        con.query(sql,function (err,result) {
+            if(sql.length>0){
+                console.log(req.session.errors);
+                res.redirect('/signin');
+            }
+            else {
+                var sqlAddress = 'INSERT INTO addresses VALUES(0,"' + req.body.address + '","' + req.body.postalcode + '","' + req.body.city + '","' + req.body.country + '")';
 
-        if (err) throw err;
+                con.query(sqlAddress, function (err, result) {
 
-            var sql = 'SELECT lAST_INSERT_ID();';
+                    if (err) throw err;
 
-            con.query(sql, function (err,result) {
+                    var sql = 'SELECT lAST_INSERT_ID();';
 
                 var sqlUser = 'INSERT INTO users VALUES(0,"'+req.body.mail+'","' + req.body.password + '","'+req.body.firstname+'","'+req.body.lastname+'","'+req.body.pseudo+'","",'+result[0]['lAST_INSERT_ID()']+',"'+req.body.phone_number+'" ); ';
                 con.query(sqlUser, function (err, result) {
@@ -53,10 +59,18 @@ router.post('/', function(req,res){
                       req.session.user.id = result[0]['lAST_INSERT_ID()'];
                       res.render('signin_success');
                     });
-                });
-            });
+                })
+            })
 
-        });
+                        var sqlUser = 'INSERT INTO users VALUES(0,"' + req.body.mail + '","' + req.body.password + '","' + req.body.firstname + '","' + req.body.lastname + '","' + req.body.pseudo + '","",' + result[0]['lAST_INSERT_ID()'] + ',"' + req.body.phone_number + '" ); ';
+                        con.query(sqlUser, function (err, result) {
+                            req.session.user = req.body.pseudo;
+                            res.render('signin_success');
+                        })
+                    })
+                });
+            }
+        })
 
     }
 });
