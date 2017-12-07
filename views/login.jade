@@ -6,10 +6,12 @@ html
         p Pour continuer, merci de vous connectez :
 
         form(name="connexionForm", method="post")
-        div.input
-            span.label Pseudo :
-            input(type="text", name="pseudo")
-        div.input
-            span.label Mot de passe :
-            input(type="password", name="password")
+            div.input
+                span.label Pseudo :
+                input(type="text", name="pseudo")
+            div.input
+                span.label Mot de passe :
+                input(type="password", name="password")
+            div.actions
+                input(type="submit", value="Envoyer")
         a(href="/signin") Inscription

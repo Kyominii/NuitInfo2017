@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 
 router.post('/', function (req, res, next) {
-    req.checkBody('mail','Invalid E-mail').isEmail();
+    req.checkBody('pseudo','Invalid pseudo').notEmpty();
     req.checkBody('password','Invalid password').notEmpty();
     req.sanitizeBody('mail').escape();
     var errors = req.validationErrors();
@@ -14,10 +14,10 @@ router.post('/', function (req, res, next) {
         res.render('login',{});
     }
     else {
-        req.session.user = req.body.mail;
+        req.session.user = req.body.pseudo;
+        
         res.redirect('/');
     }
-    console.log("test");
 });
 
 router.get('/',function (req,res) {
