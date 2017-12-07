@@ -3,8 +3,16 @@ html
     head
         title Dashboard
     body
-      - if (displayMode == 0)
+
+      if (displayMode == 0)
         p Bienvenue #{pseudo}
+
+        p Liste de vos véhicules :
+          each item in data
+          li #{item["brand"]} : #{item["capacity"]} places
+
+        hr
+
         p Ajouter un véhicule
 
         form(action='/users/car/add',name="addVehicle", method="post")
@@ -16,8 +24,8 @@ html
                 input(type="number", name="capacity")
             div.actions
                 input(type="submit", value="Envoyer")
-      - else if(displayMode == 1)
+      else if(displayMode == 1)
         p Votre véhicule a été ajouté !
         a(href="/users") Retour
-      -else
+      else
         p Erreur de mode !
