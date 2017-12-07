@@ -14,8 +14,9 @@ router.post('/', function (req, res, next) {
         res.render('login',{});
     }
     else {
-        req.session.user = req.body.pseudo;
-        
+        req.session.user.pseudo = req.body.pseudo;
+        req.session.user.id = 0;
+
         res.redirect('/');
     }
 });
