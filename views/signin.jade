@@ -1,43 +1,22 @@
-doctype html
-html
-    head
-        title Inscription
-    body
-        form(name="signinForm", method="post")
-            div.input
-                span.label Prénom :
-                input(type="text", name="firstname")
-            div.input
-                span.label Nom de famille :
-                input(type="text", name="lastname")
-            div.input
-                span.label Pseudo :
-                input(type="text", name="pseudo")
-            div.input
-                span.label Adresse :
-                input(type="text", name="address")
-            div.input
-                span.label Code postal :
-                input(type="text", name="postcode")
-            div.input
-                span.label Ville :
-                input(type="text", name="city")
-            div.input
-                span.label Pays :
-                input(type="text", name="country")
-            div.input
-                span.label E-mail :
-                input(type="mail", name="mail")
-            div.input
-                span.label Numero de tel :
-                input(type="phone_number", name="phone_number")
-            div.input
-                span.label Mot de passe :
-                input(type="password", name="password")
-            div.actions
-                input(type="submit", value="Envoyer")
+extends layout
+block content
+    .container
+        form(class="form-signin", name="connexionForm", method="post", action="/signin")
+            h2(class="form-signin-heading") Inscription
 
+            input(class="form-control form-control-top", type="text", name="firstname", placeholder="Prénom")
+            input(class="form-control form-control-middle", type="text", name="lastname", placeholder="Nom")
+            input(class="form-control form-control-middle", type="text", name="pseudo", placeholder="Pseudo")
+            input(class="form-control form-control-middle", type="text", name="address", placeholder="Adresse")
+            input(class="form-control form-control-middle", type="text", name="postcode", placeholder="Code postale")
+            input(class="form-control form-control-middle", type="text", name="city", placeholder="Ville")
+            input(class="form-control form-control-middle", type="text", name="country", placeholder="Pays")
+            input(class="form-control form-control-middle", type="mail", name="mail", placeholder="Email")
+            input(class="form-control form-control-middle", type="phone_number", name="phone_number", placeholder="Téléphone")
+            input(class="form-control form-control-middle", type="password", name="password", placeholder="Mot de passe")
+            input(class="form-control form-control-bottom", type="password", name="password_confirmation", placeholder="Confirmer mot de passe")
 
+            button(class="btn btn-lg btn-primary btn-block" type="submit") S'inscrire
 
 
 
