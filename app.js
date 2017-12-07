@@ -1,13 +1,18 @@
+var session = require('express-session');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var expressValidator = require('express-validator');
 var bodyParser = require('body-parser');
 var exec = require('child_process').exec;
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var logout = require('./routes/logout');
+var signin = require('./routes/signin');
+var login = require('./routes/login');
 
 var app = express();
 
@@ -30,11 +35,22 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator()); // Add this after the bodyParser middlewares!
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+    resave: false, // don't save session if unmodified
+    saveUninitialized: false, // don't create session until something stored
+    secret: 'shhhh, very secret'
+}));
+
 app.use('/', index);
 app.use('/users', users);
+app.use('/login', login);
+app.use('/signin', signin);
+app.use('/logout', logout);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

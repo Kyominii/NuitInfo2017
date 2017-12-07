@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        title Dashboard
+    body
+      - if (displayMode == 0)
+        Bienvenue #{pseudo}
+        p Ajouter un véhicule
+
+        form(name="addVehicle", method="post")
+            div.input
+                span.label Marque :
+                input(type="text", name="brand")
+            div.input
+                span.label Capacité :
+                input(type="number", name="capacity")
+            div.actions
+                input(type="submit", value="Envoyer")
+        a(href="/users/car/add") Envoyer
+      - else if(displayMode == 1)
+        p Votre véhicule a été ajouté !
+        a(href="/users") Retour
+      -else
+        p Erreur de mode !
