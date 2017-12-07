@@ -1,0 +1,43 @@
+doctype html
+html
+    head
+        title Inscription
+    body
+        form(name="signinForm", method="post")
+            div.input
+                span.label Prénom :
+                input(type="text", name="firstname")
+            div.input
+                span.label Nom de famille :
+                input(type="text", name="lastname")
+            div.input
+                span.label Pseudo :
+                input(type="text", name="pseudo")
+            div.input
+                span.label Adresse :
+                input(type="text", name="address")
+            div.input
+                span.label Code postal :
+                input(type="text", name="postcode")
+            div.input
+                span.label Ville :
+                input(type="text", name="city")
+            div.input
+                span.label Pays :
+                input(type="text", name="country")
+            div.input
+                span.label E-mail :
+                input(type="mail", name="mail")
+            div.input
+                span.label Numero de tel :
+                input(type="phone_number", name="phone_number")
+            div.input
+                span.label Mot de passe :
+                input(type="password", name="password")
+            div.actions
+                input(type="submit", value="Envoyer")
+
+
+
+
+
