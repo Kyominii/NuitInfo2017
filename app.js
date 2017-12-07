@@ -39,17 +39,18 @@ app.use(expressValidator()); // Add this after the bodyParser middlewares!
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+    resave: false, // don't save session if unmodified
+    saveUninitialized: false, // don't create session until something stored
+    secret: 'shhhh, very secret'
+}));
+
 app.use('/', index);
 app.use('/users', users);
 app.use('/login', login);
 app.use('/signin', signin);
 app.use('/logout', logout);
 
-app.use(session({
-    resave: false, // don't save session if unmodified
-    saveUninitialized: false, // don't create session until something stored
-    secret: 'shhhh, very secret'
-}));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
