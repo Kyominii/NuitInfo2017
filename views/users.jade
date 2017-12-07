@@ -10,9 +10,9 @@ html
         p Liste de vos véhicules :
         ul
         each item in data
-          li = item["brand"] + ' :  ' + item["capacity"] + ' places'
+          li= item["brand"] + ' :  ' + item["capacity"] + ' places'
         hr
-        
+
         p Ajouter un véhicule
         form(action='/users/car/add',name="addVehicle", method="post")
             div.input
