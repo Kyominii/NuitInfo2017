@@ -21,8 +21,8 @@ router.post('/', function (req, res, next) {
             console.log(result);
             if(result.length>0) {
                 if (result[0]['password'] === req.body.password) {
-                    req.session.user.pseudo = req.body.pseudo;
-                    req.session.user.id = 0;
+                    req.session.pseudo = req.body.pseudo;
+                    req.session.id = 0;
 
                     res.redirect('/');
                 }
@@ -35,7 +35,7 @@ router.post('/', function (req, res, next) {
             }
         })
 
-        
+
     }
 });
 

@@ -54,18 +54,12 @@ router.post('/', function(req,res){
 
                     var sqlUser = 'INSERT INTO users VALUES(0,"'+req.body.mail+'","' + req.body.password + '","'+req.body.firstname+'","'+req.body.lastname+'","'+req.body.pseudo+'","",'+result[0]['lAST_INSERT_ID()']+',"'+req.body.phone_number+'" ); ';
                     con.query(sqlUser, function (err, result) {
-                        req.session.user.pseudo = req.body.pseudo;
+                        req.session.pseudo = req.body.pseudo;
                         con.query(sql, function (err,result) {
-                          req.session.user.id = result[0]['lAST_INSERT_ID()'];
+                          req.session.id = result[0]['lAST_INSERT_ID()'];
                           res.render('signin_success');
                         });
                     })
-                  })
-
-                  var sqlUser = 'INSERT INTO users VALUES(0,"' + req.body.mail + '","' + req.body.password + '","' + req.body.firstname + '","' + req.body.lastname + '","' + req.body.pseudo + '","",' + result[0]['lAST_INSERT_ID()'] + ',"' + req.body.phone_number + '" ); ';
-                  con.query(sqlUser, function (err, result) {
-                      req.session.user = req.body.pseudo;
-                      res.render('signin_success');
                   })
             }
         })
