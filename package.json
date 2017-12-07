@@ -28,6 +28,7 @@
   "homepage": "https://github.com/ValentinDebenathTncy/NuitInfo2017#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "expressjs": "^1.0.1",
     "nodemon": "^1.12.4"
   }
 }
