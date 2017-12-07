@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/deploy', function(req, res)  {
-    var child = exec("cd ~/www ; git pull", function(err, stdout, stderr){
+    var child = exec("cd ~/www ; git pull ; npm install", function(err, stdout, stderr){
         if(err !== null){
             res.send('<h1>Error during deployment !</h1><p>' + stderr + '</p>');
         }else{
