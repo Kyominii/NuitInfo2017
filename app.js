@@ -6,15 +6,25 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var expressValidator = require('express-validator');
 var bodyParser = require('body-parser');
+var exec = require('child_process').exec;
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var deploy = require('./routes/deploy');
 var logout = require('./routes/logout');
 var signin = require('./routes/signin');
 var login = require('./routes/login');
 
 var app = express();
+
+app.post('/deploy', function(req, res) {
+    var child = exec("cd ~/www ; git pull", function(err, stdout, stderr){
+        if(err !== null){
+            res.send('<h1>Error during deployment !</h1><p>' + stderr + '</p>');
+        }else{
+            res.send('<h1>Deployment completed !</h1><p>' + stdout + '</p>');
+        }
+    });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,7 +41,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/deploy', deploy);
 app.use('/login', login);
 app.use('/signin', signin);
 app.use('/logout', logout);
