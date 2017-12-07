@@ -1,16 +1,30 @@
-extends layout
-block content
-    .container
-      if (displayMode == 0)
-        form(class="form-signin", name="addVehicle", method="post", action="/car/add")
-            //p Bienvenue #{pseudo}
-            h2 Ajouter un véhicule
+doctype html
+html
+    head
+        title Dashboard
+    body
 
-            input(class="form-control form-control-top", type="text", name="brand", placeholder="Marque")
-            input(class="form-control form-control-bottom", type="number", name="capacity", placeholder="Capacité")
-            input(class="btn btn-lg btn-primary btn-block", type="submit", value="Ajouter")
+      if (displayMode == 0)
+        p Bienvenue #{pseudo}
+
+        p Liste de vos véhicules :
+        ul
+        each item in data
+          li= item["brand"] + ' :  ' + item["capacity"] + ' places'
+        hr
+
+        p Ajouter un véhicule
+        form(action='/users/car/add',name="addVehicle", method="post")
+            div.input
+                span.label Marque :
+                input(type="text", name="brand")
+            div.input
+                span.label Capacité :
+                input(type="number", name="capacity")
+            div.actions
+                input(type="submit", value="Envoyer")
       else if(displayMode == 1)
-        div(class="alert alert-success") Votre véhicule a été ajouté !
-            a(href="/users") Retour
+        p Votre véhicule a été ajouté !
+        a(href="/users") Retour
       else
-        div(class="alert alert-danger") Erreur de mode !
+        p Erreur de mode !
