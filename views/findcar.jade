@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+        title Paragraphes
+    body
+        form
+        p.
+            Tu veux être SAM pour une soirée ??
+        table
+            tr
+                td
+                    p Lieu de ta soirée :
+                td
+                    input(type="text")
+        #content
+            p Date de la soirée
+            input(type="Date")
+
+        #content2
+            p Heures comprises entre :
+            input(type="Time")
+            p et
+            input(type="Time")
+        #content3
+            label(for="voiture") Choisir ma voiture
+                select(name="voiture2",id="voiture")
+                    option(value="renault") clio 4
+        #content4
+            input(type="submit", value="Envoyer")
+
+html
