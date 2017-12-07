@@ -22,7 +22,7 @@ router.post('/', function (req, res, next) {
             if(result.length>0) {
                 if (result[0]['password'] === req.body.password) {
                     req.session.pseudo = req.body.pseudo;
-                    req.session.id = 0;
+                    req.session.userid = result[0]['id'];
 
                     res.redirect('/');
                 }

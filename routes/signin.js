@@ -56,7 +56,7 @@ router.post('/', function(req,res){
                     con.query(sqlUser, function (err, result) {
                         req.session.pseudo = req.body.pseudo;
                         con.query(sql, function (err,result) {
-                          req.session.id = result[0]['lAST_INSERT_ID()'];
+                          req.session.userid = result[0]['lAST_INSERT_ID()'];
                           res.render('signin_success');
                         });
                     })

@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/car/add', function(req, res, next) {
   if (req.session.pseudo) {
-    var query = 'INSERT INTO cars VALUES('+req.session.id+',"'+req.body.capacity+'","'+req.body.brand+'", 0)';
+    var query = 'INSERT INTO cars VALUES('+req.session.userid+',"'+req.body.capacity+'","'+req.body.brand+'", 0)';
     mysql.query(query, function (err, result) {
       if (err) throw err;
       res.render('users', {displayMode: 1});
