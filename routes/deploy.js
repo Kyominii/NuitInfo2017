@@ -1,11 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
-});
-
 router.post('/deploy', function(req, res)  {
     var child = exec("cd ~/www ; git pull ; npm install", function(err, stdout, stderr){
         if(err !== null){
