@@ -4,7 +4,7 @@ var mysql = require('../accessBDD');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  if (req.session.user) {
+  if (req.session.id) {
     res.render('users', {displayMode: 0, pseudo: req.session.pseudo});
   } else {
     res.send('Not connected !')
@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/car', function(req, res, next) {
-  if (req.session.user) {
+  if (req.session.id) {
     var query = 'INSERT INTO cars VALUES('+req.session.id+',"'+req.body.capacity+'","'+req.body.brand+'", 0)';
     mysql.query(query, function (err, result) {
       if (err) throw err;
