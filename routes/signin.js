@@ -32,7 +32,7 @@ router.post('/', function(req,res){
 
     if(errors) {
         req.session.errors = errors;
-        console.log(errors);
+        res.render('signin', { error: true, errors: errors , session: req.session});
         res.redirect('/signin');
     }
     else {
@@ -56,8 +56,8 @@ router.post('/', function(req,res){
                     con.query(sqlUser, function (err, result) {
                         req.session.pseudo = req.body.pseudo;
                         con.query(sql, function (err,result) {
-                          req.session.id = result[0]['lAST_INSERT_ID()'];
-                          res.render('signin_success');
+                          req.session.userid = result[0]['lAST_INSERT_ID()'];
+                          res.render('signin_success', {session: req.session});
                         });
                     })
                   })
@@ -69,7 +69,7 @@ router.post('/', function(req,res){
 
 router.get('/',function (req,res) {
     res.setHeader('Content-Type', 'text/html');
-    res.render('signin');
+    res.render('signin', {session: req.session});
 });
 
 module.exports = router;

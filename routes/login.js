@@ -11,10 +11,10 @@ router.post('/', function (req, res, next) {
     var errors = req.validationErrors();
     res.setHeader('Content-Type', 'text/html');
     if (errors) {
-        res.render('login',{});
+        res.render('login', {session: req.session});
     }
     else {
-        var sql = 'SELECT password FROM users WHERE pseudo="'+req.body.pseudo+'" ';
+        var sql = 'SELECT id,password FROM users WHERE pseudo="'+req.body.pseudo+'" ';
 
         con.query(sql, function (err,result) {
             if(err) throw err;
@@ -22,7 +22,7 @@ router.post('/', function (req, res, next) {
             if(result.length>0) {
                 if (result[0]['password'] === req.body.password) {
                     req.session.pseudo = req.body.pseudo;
-                    req.session.id = 0;
+                    req.session.userid = result[0]['id'];
 
                     res.redirect('/');
                 }
@@ -41,7 +41,7 @@ router.post('/', function (req, res, next) {
 
 router.get('/',function (req,res) {
     res.setHeader('Content-Type', 'text/html');
-    res.render('login');
+    res.render('login', {session: req.session});
 });
 
 module.exports = router;

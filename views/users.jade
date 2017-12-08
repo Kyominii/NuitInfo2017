@@ -1,24 +1,33 @@
-doctype html
-html
-    head
-        title Dashboard
-    body
-      - if (displayMode == 0)
-        Bienvenue #{pseudo}
-        p Ajouter un véhicule
+extends layout
+block content
+    .container(style="background-color:white;padding:10px")
+      if (displayMode == 0)
+        h2 Liste de vos véhicules
+        table.table.table-hover
+            thead
+                tr
+                    th Marque
+                    th Capacité
+            tbody
+                each item in data
+                    tr
+                        td #{item["brand"]}
+                        td #{item["capacity"]}
 
-        form(name="addVehicle", method="post")
-            div.input
-                span.label Marque :
-                input(type="text", name="brand")
-            div.input
-                span.label Capacité :
-                input(type="number", name="capacity")
-            div.actions
-                input(type="submit", value="Envoyer")
-        a(href="/users/car/add") Envoyer
-      - else if(displayMode == 1)
-        p Votre véhicule a été ajouté !
-        a(href="/users") Retour
-      -else
-        p Erreur de mode !
+        form(action='/users/car/add',name="addVehicle", method="post")
+            h3 Ajouter un véhicule
+            .form-group.row
+                label.col-2.col-form-label(for='brand') Marque
+                .col-10
+                    input#brand.form-control(type='text', name="brand", placeholder="Marque")
+            .form-group.row
+                label.col-2.col-form-label(for='capacity') Capacité
+                .col-10
+                    input#capacity.form-control(type='text', name="capacity", placeholder="Capacité")
+
+            input(class="btn btn-lg btn-primary btn-block", type="submit", value="Ajouter")
+      else if(displayMode == 1)
+          div(class="alert alert-success") Votre véhicule a été ajouté !
+            a(href="/users") Retour
+      else
+          div(class="alert alert-danger") Erreur de mode !

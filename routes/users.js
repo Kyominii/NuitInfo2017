@@ -4,22 +4,30 @@ var mysql = require('../accessBDD');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  if (req.session.user) {
-    res.render('users', {displayMode: 0, pseudo: req.session.pseudo});
+  if (req.session.pseudo) {
+    var query = "SELECT * FROM cars WHERE user_id=" + req.session.userid;
+    mysql.query(query, (err, result) => {
+      if(err) {
+        throw err;
+      }
+      else {
+        res.render('users', {displayMode: 0, session: req.session, data: result});
+      }
+    });
   } else {
     res.send('Not connected !')
   }
 });
 
-router.get('/car', function(req, res, next) {
-  if (req.session.user) {
-    var query = 'INSERT INTO cars VALUES('+req.session.id+',"'+req.body.capacity+'","'+req.body.brand+'", 0)';
+router.post('/car/add', function(req, res, next) {
+  if (req.session.pseudo) {
+    var query = 'INSERT INTO cars (user_id,capacity,brand,available) VALUES('+req.session.userid+',"'+req.body.capacity+'","'+req.body.brand+'", 0)';
     mysql.query(query, function (err, result) {
       if (err) throw err;
-      res.render('users', {displayMode: 1});
+      res.render('users', {displayMode: 1, session: req.session});
     });
   } else {
-    res.send('Not connected !')
+    res.redirect('/login');
   }
 });
 
