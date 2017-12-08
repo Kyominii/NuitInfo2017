@@ -1,17 +1,11 @@
-doctype html
-html
-    head
-        title Connexion
-    body
-        p Pour continuer, merci de vous connectez :
+extends layout
+block content
+    .container
+        form(class="form-signin", name="connexionForm", method="post", action="/login")
+            h2(class="form-signin-heading") Connexion
 
-        form(name="connexionForm", method="post")
-            div.input
-                span.label Pseudo :
-                input(type="text", name="pseudo")
-            div.input
-                span.label Mot de passe :
-                input(type="password", name="password")
-            div.actions
-                input(type="submit", value="Envoyer")
-        a(href="/signin") Inscription
+            input(class="form-control form-control-top", type="text", name="pseudo", placeholder="Pseudo")
+            input(class="form-control form-control-bottom", type="password", name="password", placeholder="Mot de passe")
+            button(class="btn btn-lg btn-primary btn-block" type="submit") Se connecter
+
+            a(href="/signin") S'inscrire

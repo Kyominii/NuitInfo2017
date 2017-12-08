@@ -1,7 +1,6 @@
-doctype html
-html
-    head
-        title Inscription
-    body
-        h1 Inscription réussi !
-        script setTimeout("window.location.href='/';",2000);
+extends layout
+block content
+    .container
+        div(class="alert alert-success") Inscription réussi !
+
+    script setTimeout("window.location.href='/';",2000);
