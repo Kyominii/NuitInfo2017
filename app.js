@@ -20,6 +20,7 @@ var findsam = require('./routes/findsam');
 var profil = require('./routes/profil');
 var error404 = require('./routes/error404');
 var avis = require('./routes/avis');
+var astuces = require('./routes/astuces');
 
 var app = express();
 
@@ -63,6 +64,7 @@ app.use('/findsam', findsam);
 app.use('/add_prop', add_prop);
 app.use('/profil', profil);
 app.use('/avis', avis);
+app.use('/astuces', astuces);
 app.use('*', error404);
 
 
