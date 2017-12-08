@@ -57,15 +57,6 @@ app.use('/logout', logout);
 app.use('/neighbor',neighbor);
 app.use('/findcar', findcar);
 app.use('/findSam', findSam);
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  res.status(404);
-  res.render('error404');
-});
+app.use('*', error404);
 
 module.exports = app;
