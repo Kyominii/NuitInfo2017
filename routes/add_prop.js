@@ -32,7 +32,7 @@ router.post('/', function (req, res, next) {
                     var sql3 = 'SELECT * FROM cars WHERE user_id=' + req.session.userid +' AND available=0';
                     con.query(sql3, function (err, result) {
 
-                        res.render('findcar', { cars:result, carAdd:true, title:'Devenir Sam', session:req.session});
+                        res.render('add_prop', { cars:result, carAdd:true, title:'Devenir Sam', session:req.session});
                     })
                 })
             })
@@ -49,7 +49,7 @@ router.get('/',function (req,res) {
         res.setHeader('Content-Type', 'text/html');
         var sql = 'SELECT * FROM cars WHERE user_id=' + req.session.userid +' AND available=0';
         con.query(sql, function (err, result) {
-            res.render('findcar', { cars:result, carAdd:false, title:'Devenir Sam', session:req.session});
+            res.render('add_prop', { cars:result, carAdd:false, title:'Devenir Sam', session:req.session});
         })
     }
     else

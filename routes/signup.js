@@ -32,8 +32,8 @@ router.post('/', function(req,res){
 
     if(errors) {
         req.session.errors = errors;
-        res.render('signin', { error: true, errors: errors , session: req.session});
-        res.redirect('/signin');
+        res.render('signup', { error: true, errors: errors , session: req.session});
+        res.redirect('/signup');
     }
     else {
         var sql = 'SELECT email FROM users WHERE email="'+req.body.email+'"';
@@ -41,7 +41,7 @@ router.post('/', function(req,res){
         con.query(sql,function (err,result) {
             if(sql.length>0){
                 console.log(req.session.errors);
-                res.redirect('/signin');
+                res.redirect('/signup');
             }
             else {
                 var sqlAddress = 'INSERT INTO addresses VALUES(0,"' + req.body.address + '","' + req.body.postalcode + '","' + req.body.city + '","' + req.body.country + '")';
@@ -57,7 +57,7 @@ router.post('/', function(req,res){
                         req.session.pseudo = req.body.pseudo;
                         con.query(sql, function (err,result) {
                           req.session.userid = result[0]['lAST_INSERT_ID()'];
-                          res.render('signin_success', {session: req.session});
+                          res.render('signup_success', {session: req.session});
                         });
                     })
                   })
@@ -69,7 +69,7 @@ router.post('/', function(req,res){
 
 router.get('/',function (req,res) {
     res.setHeader('Content-Type', 'text/html');
-    res.render('signin', {session: req.session});
+    res.render('signup', {session: req.session});
 });
 
 module.exports = router;

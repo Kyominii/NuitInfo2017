@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    a(href='/logout') Se déconnecter
+    p PointSAM : #{pointSam}
+    a(href='/add_prop') Devenir SAM
+
+    a(href='/findsam') Chercher SAM
+    h2 Informations Personnelles
+    ul
+      li adresse : #{address}
+      li téléphone : #{phone}
+    //h3 Mon AviScore
+
+    
