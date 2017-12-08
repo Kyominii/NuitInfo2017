@@ -21,7 +21,7 @@ function initialize() {
 };
 
 var image = {
-    url: '/data/home.png'
+    url: '/data/home.jpg'
     // This marker is 20 pixels wide by 32 pixels high.
     // size: new google.maps.Size(20, 32),
     // The origin for this image is (0, 0).
