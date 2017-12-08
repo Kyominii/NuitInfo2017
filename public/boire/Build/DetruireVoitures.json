@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "DetruireVoitures.data.unityweb",
+"asmCodeUrl": "DetruireVoitures.asm.code.unityweb",
+"asmMemoryUrl": "DetruireVoitures.asm.memory.unityweb",
+"asmFrameworkUrl": "DetruireVoitures.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
