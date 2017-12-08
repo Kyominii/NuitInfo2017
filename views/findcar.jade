@@ -1,29 +1,33 @@
 extends layout
 block content
-    if carAdd
-        h1 Proposition ajouté !
-    form(method='post')
-        p.
-            Tu veux être SAM pour une soirée ??
-        table
-            tr
-                td
-                    p Lieu de ta soirée :
-                td
-                    input(type="text", name="location")
-        #content
-            p Date de la soirée
-            input(type="Date", name='date')
+    .container(style="background-color:white;padding:10px")
+        if carAdd
+            div(class="alert alert-success") Proposition ajouté !
+        form(class="form", method='post', action='/findcar', type='post')
+            h3(class="form-heading") Tu veux être SAM pour une soirée ??
 
-        #content2
-            p Heures comprises entre :
-            input(type="Time", name='t1')
-            p et
-            input(type="Time", name='t2')
-        #content3
-            label(for="voiture") Choisir ma voiture
-                select(name="car",id="voiture")
-                    each  car in cars
-                        option(value=car.id) #{car.brand}
-        #content4
-            input(type="submit", value="Envoyer")
+            .form-group.row
+                label.col-4.col-form-label(for='location') Lieu de la soirée
+                .col-8
+                    input#location.form-control(type='text', name="location", placeholder="Lieu de la soirée")
+
+            .form-group.row
+                label.col-4.col-form-label(for='date') Date de la soirée
+                .col-8
+                    input#date.form-control(type='text', name="date", placeholder="Date de la soirée")
+
+            .form-group.row
+                label.col-4.col-form-label(for='t1') Heures comprises entre
+                .col-4
+                    input#t1.form-control(type='text', name="t1", placeholder="Début")
+                .col-4
+                    input#t2.form-control(type='text', name="t2", placeholder="Fin")
+
+            .form-group.row
+                label.col-4.col-form-label(for="voiture") Choisir ma voiture
+                .col-8
+                    select.form-control(name="car",id="voiture")
+                        each  car in cars
+                            option(value=car.id) #{car.brand}
+
+            button(class="btn btn-lg btn-primary btn-block") Envoyer
