@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "EviterVoitures.data.unityweb",
+"asmCodeUrl": "EviterVoitures.asm.code.unityweb",
+"asmMemoryUrl": "EviterVoitures.asm.memory.unityweb",
+"asmFrameworkUrl": "EviterVoitures.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
