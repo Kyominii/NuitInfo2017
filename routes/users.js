@@ -31,4 +31,24 @@ router.post('/car/add', function(req, res, next) {
   }
 });
 
+router.get('/car/delete/:vehid', (req, res, next) => {
+  if (req.session.pseudo) {
+    var query = 'SELECT user_id FROM cars WHERE id='+req.params.vehid;
+    mysql.query(query, function (err, result) {
+      if (err) throw err;
+      if(result[0]['user_id'] === req.session.userid){
+        query = 'DELETE FROM cars WHERE id='+req.params.vehid;
+        mysql.query(query, function (err, result) {
+          if(err) throw err;
+          res.render('users', {displayMode: 3, session: req.session});
+        });
+      } else {
+        res.render('users', {displayMode: 2, session: req.session})
+      }
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
+
 module.exports = router;

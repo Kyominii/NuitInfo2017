@@ -16,17 +16,19 @@ html
         span.navbar-toggler-icon
       a.navbar-brand(href='#') Carousel
       #navbarCollapse.collapse.navbar-collapse
-        ul.navbar-nav.mr-auto
           if session.pseudo
-            li.nav-item
-              a.nav-link(href='/users') Profil&nbsp;
-            li.nav-item
-              a.nav-link(href='#') Deconnexion&nbsp;
-                i(class="fa fa-sign-out", aria-hidden="true")
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                a.nav-link(href='/users') Profil&nbsp;
+            ul.navbar-nav.ml-auto
+              li.nav-item
+                a.nav-link(href='#') Deconnexion&nbsp;
+                  i(class="fa fa-sign-out", aria-hidden="true")
           else
-            li.nav-item
-              a.nav-link(href='/login') Login&nbsp;
-                i(class="fa fa-sign-in", aria-hidden="true")
-            li.nav-item
-              a.nav-link(href='/signin') SignIn&nbsp;
+            ul.navbar-nav.ml-auto
+              li.nav-item
+                a.nav-link(href='/login') Login&nbsp;
+                  i(class="fa fa-sign-in", aria-hidden="true")
+              li.nav-item
+                a.nav-link(href='/signin') SignIn&nbsp;
     block content
