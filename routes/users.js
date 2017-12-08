@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
         throw err;
       }
       else {
-        res.render('users', {displayMode: 0, pseudo: req.session.pseudo, data: result});
+        res.render('users', {displayMode: 0, session: req.session, data: result});
       }
     });
   } else {
@@ -24,10 +24,10 @@ router.post('/car/add', function(req, res, next) {
     var query = 'INSERT INTO cars (user_id,capacity,brand,available) VALUES('+req.session.userid+',"'+req.body.capacity+'","'+req.body.brand+'", 0)';
     mysql.query(query, function (err, result) {
       if (err) throw err;
-      res.render('users', {displayMode: 1});
+      res.render('users', {displayMode: 1, session: req.session});
     });
   } else {
-    res.send('Not connected !')
+    res.redirect('/login');
   }
 });
 

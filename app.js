@@ -14,6 +14,8 @@ var logout = require('./routes/logout');
 var signin = require('./routes/signin');
 var login = require('./routes/login');
 var neighbor = require('./routes/neighbor');
+var findcar = require('./routes/findcar');
+
 
 var app = express();
 
@@ -52,6 +54,7 @@ app.use('/login', login);
 app.use('/signin', signin);
 app.use('/logout', logout);
 app.use('/neighbor',neighbor);
+app.use('/findcar', findcar);
 
 
 // catch 404 and forward to error handler
