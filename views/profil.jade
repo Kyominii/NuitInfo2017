@@ -1,16 +1,15 @@
 extends layout
 
 block content
-    a(href='/logout') Se déconnecter
-    p PointSAM : #{pointSam}
-    a(href='/add_prop') Devenir SAM
-    a(href='/findsam') Chercher SAM
-    a(href='/users') Mes voitures
-    h2 Informations Personnelles
-    ul
-      li Pseudo : #{pseudo}
-      li Nom : #{name}
-      li adresse : #{address}
-      li téléphone : #{phone}
-    //h3 Mon AviScore
-
+    .container(style="background:white;padding:10px;")
+        .row-fluid
+            h2 Informations Personnelles
+            ul
+              li PointSAM : #{pointSam}
+              li Pseudo : #{pseudo}
+              li Nom : #{name}
+              li adresse : #{address}
+              li téléphone : #{phone}
+        .row-fluid
+            .col-5
+                a(class="btn btn-lg btn-primary btn-block", href='/users') Mes voitures

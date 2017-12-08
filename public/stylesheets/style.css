@@ -1,5 +1,5 @@
 body {
-  padding-top: 54px;
+  padding-top: 80px;
   padding-bottom: 40px;
   background-color: #eee;
 }
@@ -149,4 +149,8 @@ body {
   .featurette-heading {
     margin-top: 7rem;
   }
+}
+
+.container {
+  padding-top:50px;
 }
