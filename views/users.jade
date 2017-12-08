@@ -29,5 +29,11 @@ block content
       else if(displayMode == 1)
           div(class="alert alert-success") Votre véhicule a été ajouté !
             a(href="/users") Retour
+      else if(displayMode == 2)
+          div(class="alert alert-error") Vous n'avez pas les droits nécessaires pour faire cette action !
+            a(href="/users") Retour
+      else if(displayMode == 3)
+          div(class="alert alert-success") Vous avez supprimer un de vos véhicules !
+            a(href="/users") Retour
       else
           div(class="alert alert-danger") Erreur de mode !

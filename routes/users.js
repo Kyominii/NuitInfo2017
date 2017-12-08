@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
         throw err;
       }
       else {
-        res.render('users', {displayMode: 0, pseudo: req.session.pseudo, data: result});
+        res.render('users', {displayMode: 0, session: req.session, data: result});
       }
     });
   } else {
@@ -24,10 +24,30 @@ router.post('/car/add', function(req, res, next) {
     var query = 'INSERT INTO cars (user_id,capacity,brand,available) VALUES('+req.session.userid+',"'+req.body.capacity+'","'+req.body.brand+'", 0)';
     mysql.query(query, function (err, result) {
       if (err) throw err;
-      res.render('users', {displayMode: 1});
+      res.render('users', {displayMode: 1, session: req.session});
     });
   } else {
-    res.send('Not connected !')
+    res.redirect('/login');
+  }
+});
+
+router.get('/car/delete/:vehid', (req, res, next) => {
+  if (req.session.pseudo) {
+    var query = 'SELECT user_id FROM cars WHERE id='+req.params.vehid;
+    mysql.query(query, function (err, result) {
+      if (err) throw err;
+      if(result[0]['user_id'] === req.session.userid){
+        query = 'DELETE FROM cars WHERE id='+req.params.vehid;
+        mysql.query(query, function (err, result) {
+          if(err) throw err;
+          res.render('users', {displayMode: 3, session: req.session});
+        });
+      } else {
+        res.render('users', {displayMode: 2, session: req.session})
+      }
+    });
+  } else {
+    res.redirect('/login');
   }
 });
 

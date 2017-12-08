@@ -1,9 +1,8 @@
-doctype html
-html
-    head
-        title Paragraphes
-    body
-        form
+extends layout
+block content
+    if carAdd
+        h1 Proposition ajouté !
+    form(method='post')
         p.
             Tu veux être SAM pour une soirée ??
         table
@@ -11,21 +10,20 @@ html
                 td
                     p Lieu de ta soirée :
                 td
-                    input(type="text")
+                    input(type="text", name="location")
         #content
             p Date de la soirée
-            input(type="Date")
+            input(type="Date", name='date')
 
         #content2
             p Heures comprises entre :
-            input(type="Time")
+            input(type="Time", name='t1')
             p et
-            input(type="Time")
+            input(type="Time", name='t2')
         #content3
             label(for="voiture") Choisir ma voiture
-                select(name="voiture2",id="voiture")
-                    option(value="renault") clio 4
+                select(name="car",id="voiture")
+                    each  car in cars
+                        option(value=car.id) #{car.brand}
         #content4
             input(type="submit", value="Envoyer")
-
-html
