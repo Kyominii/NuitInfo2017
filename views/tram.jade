@@ -1,7 +1,9 @@
 doctype html
 html
   head
-    title= horaires de tram
+    title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    h1= affiche_horaire
+    p
+      a(href='http://www.reseau-stan.com/Webservices/RestService/api/map/v1/GetAllLocalities/json?UID=STAN') Stan
