@@ -14,7 +14,8 @@ html
     nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
       button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarCollapse', aria-controls='navbarCollapse', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
-      a.navbar-brand(href='#') Carousel
+      img.navbar-brand.img-fluid(src='../data/logo_sacdenodejs.png', width='3%')
+      a.navbar-brand(href='#') Sam sauve ta vie
       #navbarCollapse.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
           if session.pseudo
@@ -28,5 +29,5 @@ html
               a.nav-link(href='/login') Login&nbsp;
                 i(class="fa fa-sign-in", aria-hidden="true")
             li.nav-item
-              a.nav-link(href='/signin') SignIn&nbsp;
+              a.nav-link(href='/signin') Sign Up&nbsp;
     block content

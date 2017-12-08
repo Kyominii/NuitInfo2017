@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   console.log(req.session);
   console.log('ok');
-  res.render('index', { title: 'Express', session: req.session });
+  res.render('index', { title: 'Sam sauve ta vie', session: req.session });
 });
 
 module.exports = router;
