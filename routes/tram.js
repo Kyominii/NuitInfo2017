@@ -23,11 +23,12 @@ router.get('/', function(req, res) {
 
 .get('/horaires_esseyRoosevelt', function(req,res) {
 	res.render('horaires/essey_roosevelt',{title: 'horaires essey roosevelt', session: req.session});
+
 })
 
 .use(function(req, res, next){
     res.setHeader('Content-Type', 'text/plain');
     res.status(404).send('Erreur 404 : t\'es où mais t\'es pas là');
-});;
+});
 
 module.exports = router;
