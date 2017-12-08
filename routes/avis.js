@@ -9,6 +9,15 @@ router.get('/', function(req, res) {
       var name = req.name;
       var message = req.message;
       var note = req.note;
+
+      var sql = 'SELECT * FROM users WHERE pseudo="'+name+'"';
+      if (sql.length = 0) {
+        res.redirect('/avis');
+      }
+      else {
+        
+      }
+
       res.render('/',{title: 'home', session: req.session})
     }
     else{
