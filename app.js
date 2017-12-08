@@ -19,6 +19,7 @@ var add_prop = require('./routes/add_prop');
 var findsam = require('./routes/findsam');
 var profil = require('./routes/profil');
 var error404 = require('./routes/error404');
+var avis = require('./routes/avis');
 
 var app = express();
 
@@ -61,6 +62,8 @@ app.use('/neighbor',neighbor);
 app.use('/findsam', findsam);
 app.use('/add_prop', add_prop);
 app.use('/profil', profil);
+app.use('/avis', avis);
 app.use('*', error404);
+
 
 module.exports = app;
