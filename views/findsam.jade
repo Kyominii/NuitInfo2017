@@ -1,5 +1,19 @@
 extends layout
 block content
-    each prop in props
-        div
-            A #{prop.location} le #{prop.date} de #{prop.time1} à #{prop.time2}
+    .container(style="background-color:white;padding:20px;")
+        h2 Liste des SAM
+        table.table.table-hover
+            thead
+                tr
+                    th
+                    th
+            tbody
+                each prop in props
+                    tr
+                        td
+                            | A #{prop.location} le #{prop.date} de #{prop.time1} à #{prop.time2}
+                        td
+                            a.btn.btn-success(href="/findsam/#{prop.id}")
+                                i(class="fa fa-check", aria-hidden="true")
+
+                // /findsam/prop.id

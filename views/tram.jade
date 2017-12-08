@@ -1,13 +1,25 @@
 extends layout
 block content
-  ul
-    li
-      a(href="tram/horaires_chu") Vandoeuvre CHU Brabois
-    li
-      a(href="tram/horaires_foretDeHaye") Foret de haie
-    li
-      a(href="tram/horaires_faisanderie") Faisanderie
-    li
-      a(href="tram/horaires_essey") Essey Mouzimpre
-    li
-      a(href="tram/horaires_esseyRoosevelt") Essey Roosevelt
+  .container(style="background:white;padding:10px;")
+    p.clickable(data-toggle='collapse', data-target='#accordion') Nancy
+    #accordion.collapse
+      table.table.table-hover
+        thead
+          tr
+            th
+        tbody
+          tr
+            td
+              a(href="/tram/horaires_chu") Vandoeuvre CHU Brabois
+          tr
+            td
+              a(href="/tram/horaires_foretDeHaye") Foret de haie
+          tr
+            td
+              a(href="/tram/horaires_faisanderie") Faisanderie
+          tr
+            td
+              a(href="/tram/horaires_essey") Essey Mouzimpre
+          tr
+            td
+              a(href="/tram/horaires_esseyRoosevelt") Essey Roosevelt

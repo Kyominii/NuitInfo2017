@@ -20,6 +20,7 @@ var findsam = require('./routes/findsam');
 var profil = require('./routes/profil');
 var error404 = require('./routes/error404');
 var avis = require('./routes/avis');
+var astuces = require('./routes/astuces');
 
 var app = express();
 
@@ -44,7 +45,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator()); // Add this after the bodyParser middlewares!
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 app.use(session({
     resave: false, // don't save session if unmodified
@@ -63,6 +64,7 @@ app.use('/findsam', findsam);
 app.use('/add_prop', add_prop);
 app.use('/profil', profil);
 app.use('/avis', avis);
+app.use('/astuces', astuces);
 app.use('*', error404);
 
 

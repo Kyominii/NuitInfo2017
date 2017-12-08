@@ -1,8 +1,8 @@
 extends layout
 block content
-    .container
+    .container(style="background-color:white;padding:10px")
         form(class="form-signin", name="connexionForm", method="post", action="/login")
-            h3(class="form-signin-heading") Connexion
+            h2(class="form-signin-heading") Connexion
 
             input(class="form-control form-control-top", type="text", name="pseudo", placeholder="Pseudo")
             input(class="form-control form-control-bottom", type="password", name="password", placeholder="Mot de passe")

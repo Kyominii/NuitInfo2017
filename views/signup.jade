@@ -1,11 +1,11 @@
 extends layout
 block content
-    .container
+    .container(style="background-color:white;padding:10px")
         if error
             for e in errors
                 div(class="alert alert-danger") #{e.msg}
 
-        form(class="form-signin", name="connexionForm", method="post", action="/signin")
+        form(class="form-signin", name="connexionForm", method="post", action="/signup")
             h2(class="form-signin-heading") Inscription
 
             input(class="form-control form-control-top", type="text", name="firstname", placeholder="Prénom")
