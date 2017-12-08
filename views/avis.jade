@@ -1,0 +1,21 @@
+extends layout
+block content
+  h1 Rentrer un avis
+  form(name="avis", method="post")
+    div.input
+      span.label Nom de l'utilisateur à noter
+      br
+      input(type="text", name="name")
+    br
+    div.input
+      span.label Message
+      br
+      input(type="text", name="message")
+    br
+    div.input
+      span.label Note sur 5
+      br
+      input(type="text", name="note")
+    br
+    div.actions
+      input(type="submit", value="valider")
