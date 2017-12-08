@@ -17,6 +17,7 @@ $(document).ready(function() {
   $(".custom-menu li").click(function(){
     switch($(this).attr("data-action")) {
         case "boire": window.location.replace('/error404'); break;
+        case "conduire": window.location.replace('/conduire'); break;
     }
     $(".custom-menu").hide(100);
   });

@@ -1,8 +1,16 @@
 block content
-    p Erreur 404
+    img.navbar-brand.img-fluid(src='data/bandeau_twitter_sacdenodejs-01.png', alt='Responsive image', width='100%')
+    h1(class="text-xl-center") Error 404
+    p
+        | Pas de panique, vous avez toujours le contrôle, à moins que vous ne soyez
+        a(class='font-weight-normal', style='text-decoration:none;color:black' href='#')  ici
+        |  par erreur. Il existe un secret sur cette page, trouvez-le !
+
+
 
 script(src="https://cdn.rawgit.com/Haeresis/konami-code-js/master/src/konami-code.js")
 script.
   new KonamiCode(function () {
-    window.location.replace('/minigame')
+    window.location.replace('/boire')
   });
+
