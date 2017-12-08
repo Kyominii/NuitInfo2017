@@ -11,7 +11,7 @@ router.post('/', function (req, res, next) {
     var errors = req.validationErrors();
     res.setHeader('Content-Type', 'text/html');
     if (errors) {
-        res.render('login',{});
+        res.render('login', {session: req.session});
     }
     else {
         var sql = 'SELECT id,password FROM users WHERE pseudo="'+req.body.pseudo+'" ';
@@ -41,7 +41,7 @@ router.post('/', function (req, res, next) {
 
 router.get('/',function (req,res) {
     res.setHeader('Content-Type', 'text/html');
-    res.render('login');
+    res.render('login', {session: req.session});
 });
 
 module.exports = router;
