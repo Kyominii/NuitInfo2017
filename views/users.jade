@@ -8,11 +8,15 @@ block content
                 tr
                     th Marque
                     th Capacité
+                    th
             tbody
                 each item in data
                     tr
                         td #{item["brand"]}
                         td #{item["capacity"]}
+                        td
+                            a.btn.btn-danger(href="/users/car/delete/#{item['id']}")
+                                i(class="fa fa-times", aria-hidden="true")
 
         form(action='/users/car/add',name="addVehicle", method="post")
             h3 Ajouter un véhicule
