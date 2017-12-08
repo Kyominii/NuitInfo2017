@@ -16,7 +16,7 @@ var login = require('./routes/login');
 var tram = require('./routes/tram');
 var neighbor = require('./routes/neighbor');
 var findcar = require('./routes/findcar');
-var findSam = require('./routes/findSam');
+var findsam = require('./routes/findsam');
 var error404 = require('./routes/error404');
 
 var app = express();
@@ -75,8 +75,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 app.use('/neighbor',neighbor);
+app.use('/findsam', findsam);
 app.use('/findcar', findcar);
-app.use('/findSam', findSam);
 app.use('*', error404);
 
 module.exports = app;
