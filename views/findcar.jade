@@ -3,29 +3,30 @@ html
     head
         title Paragraphes
     body
-        form
-        p.
-            Tu veux être SAM pour une soirée ??
-        table
-            tr
-                td
-                    p Lieu de ta soirée :
-                td
-                    input(type="text")
-        #content
-            p Date de la soirée
-            input(type="Date")
+        if carAdd
+            h1 Proposition ajouté !
+        form(method='post')
+            p.
+                Tu veux être SAM pour une soirée ??
+            table
+                tr
+                    td
+                        p Lieu de ta soirée :
+                    td
+                        input(type="text", name="location")
+            #content
+                p Date de la soirée
+                input(type="Date", name='date')
 
-        #content2
-            p Heures comprises entre :
-            input(type="Time")
-            p et
-            input(type="Time")
-        #content3
-            label(for="voiture") Choisir ma voiture
-                select(name="voiture2",id="voiture")
-                    option(value="renault") clio 4
-        #content4
-            input(type="submit", value="Envoyer")
-
-html
+            #content2
+                p Heures comprises entre :
+                input(type="Time", name='t1')
+                p et
+                input(type="Time", name='t2')
+            #content3
+                label(for="voiture") Choisir ma voiture
+                    select(name="car",id="voiture")
+                        each  car in cars
+                            option(value=car.id) #{car.brand}
+            #content4
+                input(type="submit", value="Envoyer")

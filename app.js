@@ -13,6 +13,7 @@ var users = require('./routes/users');
 var logout = require('./routes/logout');
 var signin = require('./routes/signin');
 var login = require('./routes/login');
+var findcar = require('./routes/findcar');
 
 var app = express();
 
@@ -50,7 +51,7 @@ app.use('/users', users);
 app.use('/login', login);
 app.use('/signin', signin);
 app.use('/logout', logout);
-
+app.use('/findcar', findcar);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -19,7 +19,7 @@ router.post('/car/add', function(req, res, next) {
       res.render('users', {displayMode: 1});
     });
   } else {
-    res.send('Not connected !')
+    res.redirect('/login');
   }
 });
 
