@@ -11,12 +11,13 @@ var exec = require('child_process').exec;
 var index = require('./routes/index');
 var users = require('./routes/users');
 var logout = require('./routes/logout');
-var signin = require('./routes/signin');
+var signup = require('./routes/signup');
 var login = require('./routes/login');
 var tram = require('./routes/tram');
 var neighbor = require('./routes/neighbor');
-var findcar = require('./routes/findcar');
+var add_prop = require('./routes/add_prop');
 var findsam = require('./routes/findsam');
+var profil = require('./routes/profil');
 var error404 = require('./routes/error404');
 
 var app = express();
@@ -53,12 +54,13 @@ app.use(session({
 app.use('/', index);
 app.use('/users', users);
 app.use('/login', login);
-app.use('/signin', signin);
+app.use('/signup', signup);
 app.use('/logout', logout);
 app.use('/tram', tram);
 app.use('/neighbor',neighbor);
 app.use('/findsam', findsam);
-app.use('/findcar', findcar);
+app.use('/add_prop', add_prop);
+app.use('/profil', profil);
 app.use('*', error404);
 
 module.exports = app;
