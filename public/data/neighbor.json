@@ -1,0 +1,11 @@
+[
+  {
+    "shopname": "Menagerie Coffee",
+    "location":{
+      "type": "info",
+      "coordinates": [48.6836666,6.1758754]
+    },
+    "details": "Great coffee, atmosphere, and staff.",
+    "website": "http://www.menageriecoffee.com/"
+  }
+]

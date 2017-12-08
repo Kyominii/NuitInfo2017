@@ -13,6 +13,7 @@ var users = require('./routes/users');
 var logout = require('./routes/logout');
 var signin = require('./routes/signin');
 var login = require('./routes/login');
+var neighbor = require('./routes/neighbor');
 
 var app = express();
 
@@ -50,6 +51,7 @@ app.use('/users', users);
 app.use('/login', login);
 app.use('/signin', signin);
 app.use('/logout', logout);
+app.use('/neighbor',neighbor);
 
 
 // catch 404 and forward to error handler
