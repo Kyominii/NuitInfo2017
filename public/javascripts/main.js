@@ -21,7 +21,7 @@ function initialize() {
 };
 
 var image = {
-    url: 'http://www.icone-png.com/png/54/53518.png'
+    url: '/data/home.png'
     // This marker is 20 pixels wide by 32 pixels high.
     // size: new google.maps.Size(20, 32),
     // The origin for this image is (0, 0).
