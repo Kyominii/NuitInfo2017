@@ -6,6 +6,30 @@ html
     link(rel='stylesheet', href='https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href="/stylesheets/style.css?v=1")
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    style(type='text/css')
+      .custom-menu {
+        display: none;
+        z-index: 1000;
+        position: absolute;
+        overflow: hidden;
+        border: 1px solid #CCC;
+        white-space: nowrap;
+        font-family: sans-serif;
+        background: #FFF;
+        color: #333;
+        border-radius: 5px;
+        padding: 0;
+      }
+      .custom-menu li {
+        padding: 8px 12px;
+        cursor: pointer;
+        list-style-type: none;
+        transition: all .3s ease;
+        user-select: none;
+      }
+      .custom-menu li:hover {
+        background-color: #DEF;
+      }
     script(src='https://code.jquery.com/jquery-3.2.1.min.js')
     script(src='https://maps.googleapis.com/maps/api/js?&sensor=false')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js')
@@ -32,4 +56,29 @@ html
                   i(class="fa fa-sign-in", aria-hidden="true")
               li.nav-item
                 a.nav-link(href='/signin') SignIn&nbsp;
+
+    ul.custom-menu
+      li(data-action="boire") Boire un verre
+
+    .script
+      $(document).bind("contextmenu", function (event) {
+        event.preventDefault();
+        $(".custom-menu").finish().toggle(100).
+        css({
+            top: event.pageY + "px",
+            left: event.pageX + "px"
+        });
+      });
+      $(document).bind("mousedown", function (e) {
+        if (!$(e.target).parents(".custom-menu").length > 0) {
+            $(".custom-menu").hide(100);
+        }
+      });
+      $(".custom-menu li").click(function(){
+        switch($(this).attr("data-action")) {
+            case "first": alert("first"); break;
+        }
+        $(".custom-menu").hide(100);
+      });
+
     block content
